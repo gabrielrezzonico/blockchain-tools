@@ -1,0 +1,81 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Ethereum unit converter</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!--The content below is only a placeholder and can be replaced.-->
+<br>
+<div style="text-align:center">Enter the amount and select the unit you want to convert</div>
+<div style="text-align:center; padding-top:10px;">
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Amount" [(ngModel)]="amountSelected" name="amount">
+    </mat-form-field>
+  <mat-form-field>
+    <mat-select [(ngModel)]="unitSelected" name="select" placeholder="Unit">
+      <mat-option [attr.selected]="unit=='ether'" *ngFor="let unit of objectKeys(unitMap)" value="{{unit}}">{{unit}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </form>
+
+</div>
+<div style="text-align:center">Is worth:</div>
+<div class="flex-container" style="padding:0 15% 0 15%;">
+  <div class="flex-item">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput [disabled]="true" placeholder="wei" [value]="convert(this.amountSelected, this.unitSelected, 'wei')">
+        </mat-form-field>
+      </form>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput [disabled]="true" placeholder="Kwei, Ada, Femtoether:" [value]="convert(this.amountSelected, this.unitSelected, 'kwei')">
+        </mat-form-field>
+      </form>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput [disabled]="true" placeholder="Mwei, Babbage, Picoether:" [value]="convert(this.amountSelected, this.unitSelected, 'mwei')">
+        </mat-form-field>
+      </form>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput [disabled]="true" placeholder="Gwei, Shannon, nanoether:" [value]="convert(this.amountSelected, this.unitSelected, 'gwei')">
+        </mat-form-field>
+      </form>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput [disabled]="true" placeholder="szabo, microether, micro:" [value]="convert(this.amountSelected, this.unitSelected, 'szabo')">
+        </mat-form-field>
+      </form>
+  </div>
+  <div class="flex-item">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput [disabled]="true" placeholder="finney, milliether, milli:" [value]="convert(this.amountSelected, this.unitSelected, 'finney')">
+        </mat-form-field>
+      </form>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput [disabled]="true" placeholder="ether:" [value]="convert(this.amountSelected, this.unitSelected, 'ether')">
+        </mat-form-field>
+      </form>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput [disabled]="true" placeholder="kether, grand, einstein:" [value]="convert(this.amountSelected, this.unitSelected, 'kether')">
+        </mat-form-field>
+      </form>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput [disabled]="true" placeholder="Mether:" [value]="convert(this.amountSelected, this.unitSelected, 'mether')">
+        </mat-form-field>
+      </form>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput [disabled]="true" placeholder="gether:" [value]="convert(this.amountSelected, this.unitSelected, 'gether')">
+        </mat-form-field>
+      </form>
+  </div>
+</div>
+<br>
+<div style="text-align:center">Donate ether: 0x00843cd54776de71142F9ca1373Fa64665f05217</div>
