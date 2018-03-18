@@ -1,3 +1,50 @@
-<p>
-  opcodes works!
-</p>
+<mat-table #table [dataSource]="dataSource">
+
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- value Column -->
+  <ng-container matColumnDef="value">
+    <mat-header-cell *matHeaderCellDef> value </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.value}} </mat-cell>
+  </ng-container>
+
+  <!-- mnemonic Column -->
+  <ng-container matColumnDef="mnemonic">
+    <mat-header-cell *matHeaderCellDef> mnemonic </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.mnemonic}} </mat-cell>
+  </ng-container>
+
+  <!-- gas Column -->
+  <ng-container matColumnDef="gas">
+    <mat-header-cell *matHeaderCellDef> gas </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.gas}} </mat-cell>
+  </ng-container>
+
+  <!-- removeStack Column -->
+  <ng-container matColumnDef="removeStack">
+    <mat-header-cell *matHeaderCellDef> removeStack </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.removeStack}} </mat-cell>
+  </ng-container>
+
+  <!-- addStack Column -->
+  <ng-container matColumnDef="addStack">
+    <mat-header-cell *matHeaderCellDef> addStack </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.addStack}} </mat-cell>
+  </ng-container>
+
+  <!-- notes Column -->
+  <ng-container matColumnDef="notes">
+    <mat-header-cell *matHeaderCellDef> notes </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.notes}} </mat-cell>
+  </ng-container>
+
+  <!-- formula Column -->
+  <ng-container matColumnDef="formula">
+    <mat-header-cell *matHeaderCellDef> formula </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.formula}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
